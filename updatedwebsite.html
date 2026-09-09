@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eimak's Boogers — Week 1 Oracle</title>
+<style>
+:root{
+  --bg:#080a0f;--panel:#11151d;--panel2:#0c1017;--gold:#e0b64f;--text:#f3f0e7;
+  --muted:#aaa18f;--line:#3b3529;--green:#88c999;--red:#dd7f7f;--blue:#91b7d9;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 50% -20%,#1c2130 0,#080a0f 34%,#080a0f 100%);color:var(--text);font-family:Georgia,serif}
+.wrap{max-width:1120px;margin:auto;padding:26px 16px 70px}
+.hero{text-align:center;border-bottom:1px solid var(--line);padding:0 0 30px}
+.hero-art{width:100%;display:block;border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 42px #000a;margin-bottom:22px}
+.eyebrow{color:var(--gold);letter-spacing:.2em;font:800 12px system-ui}
+h1{font-size:clamp(42px,7vw,76px);margin:8px 0 8px;line-height:1}
+.hero p{color:#c7bda9;font-size:18px;margin:12px 0 0}
+.toolbar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:20px 0 28px}
+button,.btn{border:0;border-radius:9px;background:var(--gold);color:#17120a;padding:11px 16px;font:800 14px system-ui;cursor:pointer;text-decoration:none}
+.panel{background:linear-gradient(145deg,#131821,#0e1219);border:1px solid var(--line);border-radius:15px;padding:20px;box-shadow:0 12px 34px #0008}
+.intro{text-align:center;margin-top:20px}
+.intro h3{font:800 12px system-ui;letter-spacing:.15em;color:var(--gold);margin:0 0 8px}
+.intro p{max-width:820px;margin:auto;color:#c9c1b3;line-height:1.7}
+.section-title{font-size:28px;margin:35px 0 14px}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.sumcard{background:#0d1118;border:1px solid #303746;border-radius:12px;padding:14px}
+.sumcard .num{font:800 11px system-ui;color:var(--gold);letter-spacing:.12em}
+.sumcard h3{margin:7px 0 5px;font-size:17px}
+.sumcard p{margin:3px 0;color:#bcc4cf;font:13px/1.45 system-ui}
+.matchups{display:grid;gap:18px}
+.match{overflow:hidden}
+.matchhead{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;border-bottom:1px solid #303746;padding-bottom:15px}
+.team{text-align:center}
+.team .name{font-size:21px;font-weight:800}
+.team .espn{font:12px system-ui;color:#9aa5b5;margin-top:5px}
+.vs{font:900 11px system-ui;color:var(--gold);letter-spacing:.16em}
+.pickbox{margin:16px 0;background:#0a0e14;border:1px solid #3a4251;border-radius:12px;padding:14px}
+.pickrow{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.pick{font-size:22px;font-weight:800}
+.score{font:900 22px system-ui;color:var(--gold)}
+.conf{font:800 12px system-ui;color:#b9c2ce}
+.analysis{color:#d6d8dc;line-height:1.65;margin:12px 0 0}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.badge{font:800 11px system-ui;border:1px solid #414959;border-radius:999px;padding:5px 9px}
+.heroBadge{color:#e9c56e}.riskBadge{color:#e59494}.omenBadge{color:#a9c9e7}
+.starters{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}
+.startercol{background:#0b0f15;border:1px solid #2c3340;border-radius:10px;padding:12px}
+.startercol h4{margin:0 0 8px;color:var(--gold)}
+.starter{font:12px/1.55 system-ui;color:#c9d0da;border-top:1px solid #202733;padding:4px 0}
+.starter:first-of-type{border-top:0}
+.story{font-size:17px;line-height:1.85;color:#ddd6c8}
+.story .drop{font-size:42px;float:left;line-height:.8;padding-right:7px;color:var(--gold)}
+.houses{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.house{background:#0d1118;border:1px solid #303746;border-radius:12px;padding:14px}
+.house h3{margin:0 0 8px;font-size:17px}
+.roster{font:12px/1.6 system-ui;color:#bcc4cf}
+.sources{font:12px/1.55 system-ui;color:#9ca5b3}
+.sources strong{color:#d5b45e}
+.footer{text-align:center;color:#7f8897;font:12px system-ui;margin-top:26px}
+@media(max-width:700px){
+  .matchhead{grid-template-columns:1fr}.vs{display:none}
+  .starters{grid-template-columns:1fr}
+  .team .name{font-size:19px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <img class="hero-art" src="eimak-hero.png" alt="Eimak rises from the ashes of RyHorn's broken house">
+    <div class="eyebrow">THE TENTH YEAR • THE TEMPLE OF RIVIERIS</div>
+    <h1>🔮 EIMAK'S BOOGERS</h1>
+    <p>Week 1: The First Omen</p>
+  </header>
+
+  <section class="panel intro">
+    <h3>THE ORACLE HAS SPOKEN</h3>
+    <p>From the ashes of RyHorn's broken house, Eimak rises again—reborn in smoke, prophecy, and holy mucus—to seize control of the <strong>PREDICKS OF THE HOLY REALM OF SHANIA TWAIN'S BOOGERS</strong>.</p>
+  </section>
+
+  <div class="toolbar">
+    <button onclick="document.getElementById('prophecies').scrollIntoView({behavior:'smooth'})">⚔️ Week 1 Prophecies</button>
+    <button onclick="document.getElementById('chronicle').scrollIntoView({behavior:'smooth'})">📜 Read Chronicle</button>
+    <button onclick="copyChronicle()">📋 Copy Chronicle</button>
+  </div>
+
+  <h2 class="section-title">⚔️ The Six Prophecies</h2>
+  <div class="summary">
+    <div class="sumcard"><div class="num">PROPHECY I</div><h3>Baba Yaga over Booger Eaters</h3><p>118–114 • Confidence 6/10</p></div>
+    <div class="sumcard"><div class="num">PROPHECY II</div><h3>Serving Kuentz over Nation of Of Domination</h3><p>121–112 • Confidence 7/10</p></div>
+    <div class="sumcard"><div class="num">PROPHECY III</div><h3>We B. Tuten over Carl MARXDONALD'S</h3><p>119–115 • Confidence 5/10</p></div>
+    <div class="sumcard"><div class="num">PROPHECY IV</div><h3>Dr. Alligator over Show Me The Turtles</h3><p>113–109 • Confidence 5/10 • Upset</p></div>
+    <div class="sumcard"><div class="num">PROPHECY V</div><h3>Shaving Ryans privates over The Bloody Weather</h3><p>116–110 • Confidence 6/10</p></div>
+    <div class="sumcard"><div class="num">PROPHECY VI</div><h3>Homeless Doink Wagglers over Your greatest ally</h3><p>114–112 • Confidence 4/10</p></div>
+  </div>
+
+  <div id="prophecies" class="matchups" style="margin-top:22px">
+
+    <section class="panel match">
+      <div class="matchhead">
+        <div class="team"><div class="name">Booger Eaters</div><div class="espn">ESPN baseline: 110.8</div></div>
+        <div class="vs">VERSUS</div>
+        <div class="team"><div class="name">Baba Yaga</div><div class="espn">ESPN baseline: 117.8</div></div>
+      </div>
+      <div class="pickbox">
+        <div class="pickrow"><div class="pick">🔮 Eimak favors Baba Yaga</div><div class="score">118–114</div></div>
+        <div class="conf">CONFIDENCE: 6/10</div>
+        <p class="analysis">Booger Eaters have the terrifying Lamar Jackson–Bijan Robinson foundation; both sit at or near the top of current Week 1 expert boards. But Baba Yaga counters with Jonathan Taylor, Ashton Jeanty, Garrett Wilson and a deeper middle of the lineup. Eimak sees Booger Eaters closing the ESPN gap, but not quite taking Nathan's crown on opening weekend.</p>
+        <div class="badges"><span class="badge heroBadge">🔥 Chosen: Jonathan Taylor</span><span class="badge riskBadge">🩸 Sacrifice: Christian Watson</span><span class="badge omenBadge">📜 Omen: Nathan survives the first night</span></div>
+      </div>
+      <div class="starters">
+        <div class="startercol"><h4>Booger Eaters</h4>
+          <div class="starter">QB — Lamar Jackson</div><div class="starter">RB — Bijan Robinson</div><div class="starter">RB — Javonte Williams</div><div class="starter">WR — A.J. Brown</div><div class="starter">WR — Christian Watson</div><div class="starter">TE — Dallas Goedert</div><div class="starter">FLEX — Terry McLaurin</div><div class="starter">D/ST — Jaguars</div><div class="starter">K — Eddy Pineiro</div>
+        </div>
+        <div class="startercol"><h4>Baba Yaga</h4>
+          <div class="starter">QB — Jaxson Dart</div><div class="starter">RB — Jonathan Taylor</div><div class="starter">RB — Ashton Jeanty</div><div class="starter">WR — Garrett Wilson</div><div class="starter">WR — Tetairoa McMillan</div><div class="starter">TE — Harold Fannin Jr.</div><div class="starter">FLEX — Jadarian Price</div><div class="starter">D/ST — Chargers</div><div class="starter">K — Harrison Mevis</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel match">
+      <div class="matchhead">
+        <div class="team"><div class="name">Serving Kuentz</div><div class="espn">ESPN baseline: 112.9</div></div>
+        <div class="vs">VERSUS</div>
+        <div class="team"><div class="name">Nation of Of Domination</div><div class="espn">ESPN baseline: 107.9</div></div>
+      </div>
+      <div class="pickbox">
+        <div class="pickrow"><div class="pick">🔮 Eimak favors Serving Kuentz</div><div class="score">121–112</div></div>
+        <div class="conf">CONFIDENCE: 7/10</div>
+        <p class="analysis">Josh Allen and Jahmyr Gibbs form the strongest two-man opening punch on the slate. Gibbs is the consensus-type RB1 this week and Chris Olave draws one of the week's most attractive receiver environments. Nation still owns Derrick Henry and Justin Jefferson, but Drake Maye's road date in Seattle is a tougher opening assignment and Tee Higgins enters the week with an injury tag, even though current reporting says he is on pace to play.</p>
+        <div class="badges"><span class="badge heroBadge">🔥 Chosen: Jahmyr Gibbs</span><span class="badge riskBadge">🩸 Sacrifice: Drake Maye</span><span class="badge omenBadge">⚡ Miracle: Olave joins the feast</span></div>
+      </div>
+      <div class="starters">
+        <div class="startercol"><h4>Serving Kuentz</h4>
+          <div class="starter">QB — Josh Allen</div><div class="starter">RB — Jahmyr Gibbs</div><div class="starter">RB — D'Andre Swift</div><div class="starter">WR — Chris Olave</div><div class="starter">WR — Davante Adams</div><div class="starter">TE — Kyle Pitts Sr.</div><div class="starter">FLEX — Michael Pittman Jr.</div><div class="starter">D/ST — Lions</div><div class="starter">K — Cam Little</div>
+        </div>
+        <div class="startercol"><h4>Nation of Of Domination</h4>
+          <div class="starter">QB — Drake Maye</div><div class="starter">RB — Derrick Henry</div><div class="starter">RB — Travis Etienne Jr.</div><div class="starter">WR — Justin Jefferson</div><div class="starter">WR — Tee Higgins</div><div class="starter">TE — Isaiah Likely</div><div class="starter">FLEX — DK Metcalf</div><div class="starter">D/ST — Texans</div><div class="starter">K — Ka'imi Fairbairn</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel match">
+      <div class="matchhead">
+        <div class="team"><div class="name">We B. Tuten</div><div class="espn">ESPN baseline: 114.4</div></div>
+        <div class="vs">VERSUS</div>
+        <div class="team"><div class="name">Carl MARXDONALD'S</div><div class="espn">ESPN baseline: 110.4</div></div>
+      </div>
+      <div class="pickbox">
+        <div class="pickrow"><div class="pick">🔮 Eimak favors We B. Tuten</div><div class="score">119–115</div></div>
+        <div class="conf">CONFIDENCE: 5/10</div>
+        <p class="analysis">This is a heavyweight fight. Jalen Hurts and Joe Burrow both sit among the elite Week 1 quarterback options, while Amon-Ra St. Brown and Ja'Marr Chase are both top-tier receiver plays. Eimak gives the smallest edge to Tuten because Hurts' rushing floor plus Omarion Hampton's favorable setup gives that side a little more insulation if one receiver disappoints.</p>
+        <div class="badges"><span class="badge heroBadge">🔥 Chosen: Amon-Ra St. Brown</span><span class="badge riskBadge">🩸 Sacrifice: DJ Moore</span><span class="badge omenBadge">⚡ Miracle: Bhayshul Tuten finds the end zone</span></div>
+      </div>
+      <div class="starters">
+        <div class="startercol"><h4>We B. Tuten</h4>
+          <div class="starter">QB — Jalen Hurts</div><div class="starter">RB — Omarion Hampton</div><div class="starter">RB — Bhayshul Tuten</div><div class="starter">WR — Amon-Ra St. Brown</div><div class="starter">WR — George Pickens</div><div class="starter">TE — Sam LaPorta</div><div class="starter">FLEX — Jaylen Waddle</div><div class="starter">D/ST — Chiefs</div><div class="starter">K — Jason Myers</div>
+        </div>
+        <div class="startercol"><h4>Carl MARXDONALD'S</h4>
+          <div class="starter">QB — Joe Burrow</div><div class="starter">RB — Breece Hall</div><div class="starter">RB — David Montgomery</div><div class="starter">WR — Ja'Marr Chase</div><div class="starter">WR — Rashee Rice</div><div class="starter">TE — Mark Andrews</div><div class="starter">FLEX — DJ Moore</div><div class="starter">D/ST — Ravens</div><div class="starter">K — Evan McPherson</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel match">
+      <div class="matchhead">
+        <div class="team"><div class="name">Dr. Alligator</div><div class="espn">ESPN baseline: 107.9</div></div>
+        <div class="vs">VERSUS</div>
+        <div class="team"><div class="name">Show Me The Turtles</div><div class="espn">ESPN baseline: 111.6</div></div>
+      </div>
+      <div class="pickbox">
+        <div class="pickrow"><div class="pick">🔮 Eimak calls the upset: Dr. Alligator</div><div class="score">113–109</div></div>
+        <div class="conf">CONFIDENCE: 5/10</div>
+        <p class="analysis">Turtles have the explosive Justin Herbert–Jaxon Smith-Njigba pairing, and JSN is one of the week's highest-ranked receivers. But Malik Nabers' availability remains uncertain as he works back from his ACL injury. Dr. Alligator counters with James Cook, Kenneth Walker and Brock Bowers, whose red-zone role makes him one of the better touchdown bets at tight end. The Oracle smells the first upset of the year.</p>
+        <div class="badges"><span class="badge heroBadge">🔥 Chosen: Brock Bowers</span><span class="badge riskBadge">🩸 Sacrifice: Malik Nabers' uncertainty</span><span class="badge omenBadge">☠️ Curse: ESPN's favorite falls</span></div>
+      </div>
+      <div class="starters">
+        <div class="startercol"><h4>Dr. Alligator</h4>
+          <div class="starter">QB — Jared Goff</div><div class="starter">RB — James Cook III</div><div class="starter">RB — MarShawn Lloyd</div><div class="starter">WR — Ladd McConkey</div><div class="starter">WR — Michael Wilson</div><div class="starter">TE — Brock Bowers</div><div class="starter">FLEX — Kenneth Walker III</div><div class="starter">D/ST — Jets</div><div class="starter">K — Brandon Aubrey</div>
+        </div>
+        <div class="startercol"><h4>Show Me The Turtles</h4>
+          <div class="starter">QB — Justin Herbert</div><div class="starter">RB — Bucky Irving</div><div class="starter">RB — Rhamondre Stevenson</div><div class="starter">WR — Jaxon Smith-Njigba</div><div class="starter">WR — Nico Collins</div><div class="starter">TE — Tyler Warren</div><div class="starter">FLEX — Malik Nabers</div><div class="starter">D/ST — Eagles</div><div class="starter">K — Harrison Butker</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel match">
+      <div class="matchhead">
+        <div class="team"><div class="name">Shaving Ryans privates</div><div class="espn">ESPN baseline: 110.7</div></div>
+        <div class="vs">VERSUS</div>
+        <div class="team"><div class="name">The Bloody Weather</div><div class="espn">ESPN baseline: 106.9</div></div>
+      </div>
+      <div class="pickbox">
+        <div class="pickrow"><div class="pick">🔮 Eimak favors Shaving Ryans privates</div><div class="score">116–110</div></div>
+        <div class="conf">CONFIDENCE: 6/10</div>
+        <p class="analysis">Christian McCaffrey returned to full participation and remains an elite Week 1 fantasy play. Add Dak Prescott, Trey McBride and a strong group of touchdown candidates and Shaving Ryans has the steadier profile. Bloody Weather can absolutely detonate through CeeDee Lamb and Chase Brown, but Eimak sees too many paths to points on the other side.</p>
+        <div class="badges"><span class="badge heroBadge">🔥 Chosen: Christian McCaffrey</span><span class="badge riskBadge">🩸 Sacrifice: Tucker Kraft</span><span class="badge omenBadge">⚡ Miracle: Emeka Egbuka announces himself</span></div>
+      </div>
+      <div class="starters">
+        <div class="startercol"><h4>Shaving Ryans privates</h4>
+          <div class="starter">QB — Dak Prescott</div><div class="starter">RB — Christian McCaffrey</div><div class="starter">RB — Jeremiyah Love</div><div class="starter">WR — Emeka Egbuka</div><div class="starter">WR — Jameson Williams</div><div class="starter">TE — Trey McBride</div><div class="starter">FLEX — Rico Dowdle</div><div class="starter">D/ST — Steelers</div><div class="starter">K — Jake Bates</div>
+        </div>
+        <div class="startercol"><h4>The Bloody Weather</h4>
+          <div class="starter">QB — Caleb Williams</div><div class="starter">RB — Chase Brown</div><div class="starter">RB — Cam Skattebo</div><div class="starter">WR — CeeDee Lamb</div><div class="starter">WR — Rome Odunze</div><div class="starter">TE — Tucker Kraft</div><div class="starter">FLEX — Quinshon Judkins</div><div class="starter">D/ST — Seahawks</div><div class="starter">K — Tyler Loop</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel match">
+      <div class="matchhead">
+        <div class="team"><div class="name">Homeless Doink Wagglers</div><div class="espn">ESPN baseline: 108.3</div></div>
+        <div class="vs">VERSUS</div>
+        <div class="team"><div class="name">Your greatest ally</div><div class="espn">ESPN baseline: 108.4</div></div>
+      </div>
+      <div class="pickbox">
+        <div class="pickrow"><div class="pick">🔮 Eimak favors Homeless Doink Wagglers</div><div class="score">114–112</div></div>
+        <div class="conf">CONFIDENCE: 4/10 — THE COIN FLIP</div>
+        <p class="analysis">ESPN separates these teams by one tenth of a point, and Eimak agrees that chaos is coming. Your greatest ally has the monstrous Achane–Barkley backfield, but George Kittle is still working back from an Achilles injury and his Week 1 workload is uncertain. Homeless counters with Puka Nacua — the top-ranked receiver on several Week 1 boards — plus Jayden Daniels' rushing ceiling. One broken play decides it.</p>
+        <div class="badges"><span class="badge heroBadge">🔥 Chosen: Puka Nacua</span><span class="badge riskBadge">🩸 Sacrifice: George Kittle's workload</span><span class="badge omenBadge">📜 Omen: decided in the final NFL game</span></div>
+      </div>
+      <div class="starters">
+        <div class="startercol"><h4>Homeless Doink Wagglers</h4>
+          <div class="starter">QB — Jayden Daniels</div><div class="starter">RB — Kyren Williams</div><div class="starter">RB — Tony Pollard</div><div class="starter">WR — Puka Nacua</div><div class="starter">WR — Drake London</div><div class="starter">TE — Colston Loveland</div><div class="starter">FLEX — Kenny Gainwell</div><div class="starter">D/ST — Browns</div><div class="starter">K — Cameron Dicker</div>
+        </div>
+        <div class="startercol"><h4>Your greatest ally</h4>
+          <div class="starter">QB — Brock Purdy</div><div class="starter">RB — De'Von Achane</div><div class="starter">RB — Saquon Barkley</div><div class="starter">WR — DeVonta Smith</div><div class="starter">WR — Zay Flowers</div><div class="starter">TE — George Kittle</div><div class="starter">FLEX — Luther Burden III</div><div class="starter">D/ST — Rams</div><div class="starter">K — Chris Boswell</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <h2 id="chronicle" class="section-title">📜 The Commissioner's Chronicle — Chapter I</h2>
+  <section class="panel story">
+    <p><span class="drop">F</span>or ten seasons they had returned to Rivieris believing the ritual belonged to them. Twelve houses. Twelve banners. Twelve managers convinced that draft boards, waiver claims and Sunday panic were the forces that decided their fate.</p>
+    <p>They were wrong.</p>
+    <p>Deep beneath the Temple, where no commissioner had walked in years, Eimak opened his eyes.</p>
+    <p>The Oracle saw six battles. He saw Gibbs running through smoke. He saw an Alligator rise where the projections said it should sink. He saw Puka standing at the edge of a game separated by a fraction of a point. And above them all he saw the old champion, Nathan of Baba Yaga, seated comfortably upon the throne as though last season had granted him ownership of the future.</p>
+    <p>Eimak did not order the throne destroyed. Not yet.</p>
+    <p>Instead, he whispered a name into the stone beneath it.</p>
+    <p><em>Rivieris remembers.</em></p>
+    <p>Week 1 would begin as all revolutions begin: not with the blade, but with the first person realizing the king can bleed.</p>
+  </section>
+
+  <h2 class="section-title">🏛️ The Twelve Houses</h2>
+  <div class="houses" id="houses"></div>
+
+  <h2 class="section-title">🔎 Oracle's Research Scroll</h2>
+  <section class="panel sources">
+    <p><strong>Analysis snapshot:</strong> September 9, 2026. The Oracle cross-checked ESPN lineup projections with current Week 1 rankings/projections from Draft Sharks, 4for4, DraftKings Network and FPTrack, plus current NFL/injury reporting.</p>
+    <p><strong>Key reads:</strong> Lamar Jackson and Jalen Hurts rank at the top of current QB boards; Jahmyr Gibbs and Bijan Robinson sit at the top of RB boards; Puka Nacua, Jaxon Smith-Njigba, Ja'Marr Chase and Amon-Ra St. Brown are among the highest Week 1 WR projections. Current injury reporting says Ja'Marr Chase and Tee Higgins are on pace to play, George Kittle's Week 1 workload remains uncertain, and Malik Nabers' status remains a significant Week 1 variable.</p>
+    <p>Fantasy projections are estimates, not guarantees. The Oracle accepts no liability for cursed hamstrings, goal-line vultures or kickers missing from 34 yards.</p>
+  </section>
+
+  <div class="footer">Eimak's Boogers • The Temple of Rivieris • 2026 Week 1</div>
+</div>
+
+<script>
+const rosters = {
+"Booger Eaters":["Lamar Jackson","Bijan Robinson","Javonte Williams","A.J. Brown","Christian Watson","Dallas Goedert","Terry McLaurin","Jaguars D/ST","Eddy Pineiro","Parker Washington","Chris Godwin Jr.","Quentin Johnston","Brian Robinson Jr.","Keaton Mitchell","Kyler Murray"],
+"Your greatest ally":["Brock Purdy","De'Von Achane","Saquon Barkley","DeVonta Smith","Zay Flowers","George Kittle","Luther Burden III","Rams D/ST","Chris Boswell","TreVeyon Henderson","Stefon Diggs","Zach Charbonnet","Dalton Kincaid","Kayshon Boutte","Kaelon Black"],
+"Homeless Doink Wagglers":["Jayden Daniels","Kyren Williams","Tony Pollard","Puka Nacua","Drake London","Colston Loveland","Kenny Gainwell","Browns D/ST","Cameron Dicker","Aaron Jones Sr.","Jakobi Meyers","Patrick Mahomes","Romeo Doubs","Alvin Kamara","Brenton Strange"],
+"Shaving Ryans privates":["Dak Prescott","Christian McCaffrey","Jeremiyah Love","Emeka Egbuka","Jameson Williams","Trey McBride","Rico Dowdle","Steelers D/ST","Jake Bates","Courtland Sutton","J.K. Dobbins","Jayden Reed","Woody Marks","Jalen Coker","Travis Hunter"],
+"Show Me The Turtles":["Justin Herbert","Bucky Irving","Rhamondre Stevenson","Jaxon Smith-Njigba","Nico Collins","Tyler Warren","Malik Nabers","Eagles D/ST","Harrison Butker","Jaylen Warren","Jonathon Brooks","Jordan Mason","Josh Downs","Mike Washington Jr.","Jerry Jeudy"],
+"Nation of Of Domination":["Drake Maye","Derrick Henry","Travis Etienne Jr.","Justin Jefferson","Tee Higgins","Isaiah Likely","DK Metcalf","Texans D/ST","Ka'imi Fairbairn","Rachaad White","Deebo Samuel Sr.","Xavier Worthy","Dylan Sampson","Hunter Henry","Omar Cooper Jr."],
+"We B. Tuten":["Jalen Hurts","Omarion Hampton","Bhayshul Tuten","Amon-Ra St. Brown","George Pickens","Sam LaPorta","Jaylen Waddle","Chiefs D/ST","Jason Myers","Chuba Hubbard","Wan'Dale Robinson","Matthew Stafford","Khalil Shakir","Tank Bigsby","Juwan Johnson"],
+"Baba Yaga":["Jaxson Dart","Jonathan Taylor","Ashton Jeanty","Garrett Wilson","Tetairoa McMillan","Harold Fannin Jr.","Jadarian Price","Chargers D/ST","Harrison Mevis","Alec Pierce","RJ Harvey","Makai Lemon","Jake Ferguson","Broncos D/ST","Daniel Jones"],
+"Serving Kuentz":["Josh Allen","Jahmyr Gibbs","D'Andre Swift","Chris Olave","Davante Adams","Kyle Pitts Sr.","Michael Pittman Jr.","Lions D/ST","Cam Little","Matthew Golden","Kyle Monangai","Tyjae Spears","Travis Kelce","Tyler Shough","Rashid Shaheed"],
+"The Bloody Weather":["Caleb Williams","Chase Brown","Cam Skattebo","CeeDee Lamb","Rome Odunze","Tucker Kraft","Quinshon Judkins","Seahawks D/ST","Tyler Loop","Marvin Harrison Jr.","Jacory Croskey-Merritt","Trevor Lawrence","Jonah Coleman","Bo Nix","Denzel Boston"],
+"Dr. Alligator":["Jared Goff","James Cook III","MarShawn Lloyd","Ladd McConkey","Michael Wilson","Brock Bowers","Kenneth Walker III","Jets D/ST","Brandon Aubrey","Josh Jacobs","Carnell Tate","Brian Thomas Jr.","De'Zhaun Stribling","Chris Rodriguez Jr.","Tre Tucker"],
+"Carl MARXDONALD'S":["Joe Burrow","Breece Hall","David Montgomery","Ja'Marr Chase","Rashee Rice","Mark Andrews","DJ Moore","Ravens D/ST","Evan McPherson","Mike Evans","Blake Corum","Jordan Addison","KC Concepcion","Tyler Allgeier","Jordyn Tyson"]
+};
+const houses=document.getElementById("houses");
+Object.entries(rosters).forEach(([name,players])=>{
+  const d=document.createElement("div");d.className="house";
+  d.innerHTML="<h3>"+name+"</h3><div class='roster'>"+players.join(" • ")+"</div>";
+  houses.appendChild(d);
+});
+function copyChronicle(){
+ const text=`🔮 THE CHRONICLES OF EIMAK — WEEK 1
+
+1. BABA YAGA over BOOGER EATERS, 118–114
+2. SERVING KUENTZ over NATION OF OF DOMINATION, 121–112
+3. WE B. TUTEN over CARL MARXDONALD'S, 119–115
+4. DR. ALLIGATOR over SHOW ME THE TURTLES, 113–109
+5. SHAVING RYANS PRIVATES over THE BLOODY WEATHER, 116–110
+6. HOMELESS DOINK WAGGLERS over YOUR GREATEST ALLY, 114–112
+
+The first omen has been recorded. Nathan still sits upon the throne.
+
+For now.
+
+Rivieris remembers.`;
+ navigator.clipboard.writeText(text).then(()=>alert("Week 1 Chronicle copied."));
+}
+</script>
+</body>
+</html>
