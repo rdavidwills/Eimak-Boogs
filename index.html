@@ -1,0 +1,65 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eimak's Boogers — The Temple of Rivieris</title>
+<style>
+body{margin:0;background:#080a0f;color:#f3f0e7;font-family:Georgia,serif}.wrap{max-width:1100px;margin:auto;padding:24px 16px 60px}
+.hero{text-align:center;border-bottom:1px solid #403a2d;padding:20px 0 28px}.gold{color:#d8ae52;letter-spacing:.2em;font:bold 12px system-ui}.hero h1{font-size:clamp(38px,7vw,72px);margin:8px 0}.sub{color:#aaa18f}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px;margin-top:22px}.card{background:#11151d;border:1px solid #37332a;border-radius:14px;padding:18px;box-shadow:0 10px 30px #0008}
+label{display:block;color:#a9a18e;font:12px system-ui;font-weight:700;margin:10px 0 5px}select,input,textarea{width:100%;box-sizing:border-box;background:#090c11;color:#fff;border:1px solid #383d48;border-radius:8px;padding:10px;font:inherit}textarea{min-height:70px}.row{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+button{background:#d8ae52;color:#17120a;border:0;border-radius:8px;padding:11px 15px;font-weight:800;cursor:pointer}.toolbar{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin:18px 0}
+.roster{font:12px system-ui;color:#c5cbd5;line-height:1.6;margin-top:8px;max-height:95px;overflow:auto}.output{margin-top:14px;white-space:pre-wrap;line-height:1.6}.note{font:12px system-ui;color:#8e96a5;text-align:center;margin-top:20px}
+</style></head><body><div class="wrap">
+<div class="hero"><div class="gold">THE TENTH YEAR • THE TEMPLE OF RIVIERIS</div><h1>🔮 EIMAK'S BOOGERS</h1><div class="sub">The Oracle has awakened. The 2026 campaign begins.</div></div>
+<div class="card" style="margin-top:20px;text-align:center"><div style="font:12px system-ui;color:#d8ae52;letter-spacing:.12em;font-weight:800">WELCOME TO RIVIERIS</div><p style="color:#c5c0b5;line-height:1.7;margin:10px auto 0;max-width:780px">Every week, the Oracle weighs the actual starting lineups, current fantasy expert consensus, injuries, matchups, and game environments before delivering his decree. Then the league gets the prophecy — and eventually we find out whether Eimak was right.</p></div>
+<div class="toolbar"><button onclick="window.scrollTo({top:document.getElementById('matchups').offsetTop-20,behavior:'smooth'})">⚔️ Week 1</button><button onclick="generate()">📜 Generate Chronicle</button><button onclick="copyPost()">📋 Copy Chronicle</button></div>
+<div id="matchups" class="grid"></div>
+<div class="card" style="margin-top:20px"><h2>🏛️ The Twelve Houses</h2><div id="teams" class="grid" style="margin-top:12px"></div></div>
+<div class="card" style="margin-top:20px"><h2>📜 Commissioner's Chronicle</h2><div id="output" class="output"></div></div>
+<div class="note">Public league edition • Rosters are preloaded • Commissioner updates the weekly prophecy before publishing.</div>
+</div>
+<script>
+const teams={"Booger Eaters": ["Lamar Jackson", "Bijan Robinson", "Javonte Williams", "A.J. Brown", "Christian Watson", "Dallas Goedert", "Terry McLaurin", "Jaguars D/ST", "Eddy Pineiro", "Parker Washington", "Chris Godwin Jr.", "Quentin Johnston", "Brian Robinson Jr.", "Keaton Mitchell", "Kyler Murray"], "Your greatest ally": ["Brock Purdy", "De'Von Achane", "Saquon Barkley", "DeVonta Smith", "Zay Flowers", "George Kittle", "Luther Burden III", "Rams D/ST", "Chris Boswell", "TreVeyon Henderson", "Stefon Diggs", "Zach Charbonnet", "Dalton Kincaid", "Kayshon Boutte", "Kaelon Black"], "Homeless Doink Wagglers": ["Jayden Daniels", "Kyren Williams", "Tony Pollard", "Puka Nacua", "Drake London", "Colston Loveland", "Kenny Gainwell", "Browns D/ST", "Cameron Dicker", "Aaron Jones Sr.", "Jakobi Meyers", "Patrick Mahomes", "Romeo Doubs", "Alvin Kamara", "Brenton Strange"], "Shaving Ryans privates": ["Dak Prescott", "Christian McCaffrey", "Jeremiyah Love", "Emeka Egbuka", "Jameson Williams", "Trey McBride", "Rico Dowdle", "Steelers D/ST", "Jake Bates", "Courtland Sutton", "J.K. Dobbins", "Jayden Reed", "Woody Marks", "Jalen Coker", "Travis Hunter"], "Show Me The Turtles": ["Justin Herbert", "Bucky Irving", "Rhamondre Stevenson", "Jaxon Smith-Njigba", "Nico Collins", "Tyler Warren", "Malik Nabers", "Eagles D/ST", "Harrison Butker", "Jaylen Warren", "Jonathon Brooks", "Jordan Mason", "Josh Downs", "Mike Washington Jr.", "Jerry Jeudy"], "Nation of Of Domination": ["Drake Maye", "Derrick Henry", "Travis Etienne Jr.", "Justin Jefferson", "Tee Higgins", "Isaiah Likely", "DK Metcalf", "Texans D/ST", "Ka'imi Fairbairn", "Rachaad White", "Deebo Samuel Sr.", "Xavier Worthy", "Dylan Sampson", "Hunter Henry", "Omar Cooper Jr."], "We B. Tuten": ["Jalen Hurts", "Omarion Hampton", "Bhayshul Tuten", "Amon-Ra St. Brown", "George Pickens", "Sam LaPorta", "Jaylen Waddle", "Chiefs D/ST", "Jason Myers", "Chuba Hubbard", "Wan'Dale Robinson", "Matthew Stafford", "Khalil Shakir", "Tank Bigsby", "Juwan Johnson"], "Baba Yaga": ["Jaxson Dart", "Jonathan Taylor", "Ashton Jeanty", "Garrett Wilson", "Tetairoa McMillan", "Harold Fannin Jr.", "Jadarian Price", "Chargers D/ST", "Harrison Mevis", "Alec Pierce", "RJ Harvey", "Makai Lemon", "Jake Ferguson", "Broncos D/ST", "Daniel Jones"], "Serving Kuentz": ["Josh Allen", "Jahmyr Gibbs", "D'Andre Swift", "Chris Olave", "Davante Adams", "Kyle Pitts Sr.", "Michael Pittman Jr.", "Lions D/ST", "Cam Little", "Matthew Golden", "Kyle Monangai", "Tyjae Spears", "Travis Kelce", "Tyler Shough", "Rashid Shaheed"], "The Bloody Weather": ["Caleb Williams", "Chase Brown", "Cam Skattebo", "CeeDee Lamb", "Rome Odunze", "Tucker Kraft", "Quinshon Judkins", "Seahawks D/ST", "Tyler Loop", "Marvin Harrison Jr.", "Jacory Croskey-Merritt", "Trevor Lawrence", "Jonah Coleman", "Bo Nix", "Denzel Boston"], "Dr. Alligator": ["Jared Goff", "James Cook III", "MarShawn Lloyd", "Ladd McConkey", "Michael Wilson", "Brock Bowers", "Kenneth Walker III", "Jets D/ST", "Brandon Aubrey", "Josh Jacobs", "Carnell Tate", "Brian Thomas Jr.", "De'Zhaun Stribling", "Chris Rodriguez Jr.", "Tre Tucker"], "Carl MARXDONALD'S": ["Joe Burrow", "Breece Hall", "David Montgomery", "Ja'Marr Chase", "Rashee Rice", "Mark Andrews", "DJ Moore", "Ravens D/ST", "Evan McPherson", "Mike Evans", "Blake Corum", "Jordan Addison", "KC Concepcion", "Tyler Allgeier", "Jordyn Tyson"]};
+const defaultMatches=[{"a": "Booger Eaters", "b": "Your greatest ally", "winner": "Booger Eaters", "sa": 125, "sb": 120, "confidence": 5, "hero": "", "sacrifice": "", "miracle": "", "curse": "", "future": ""}, {"a": "Homeless Doink Wagglers", "b": "Shaving Ryans privates", "winner": "Homeless Doink Wagglers", "sa": 125, "sb": 120, "confidence": 5, "hero": "", "sacrifice": "", "miracle": "", "curse": "", "future": ""}, {"a": "Show Me The Turtles", "b": "Nation of Of Domination", "winner": "Show Me The Turtles", "sa": 125, "sb": 120, "confidence": 5, "hero": "", "sacrifice": "", "miracle": "", "curse": "", "future": ""}, {"a": "We B. Tuten", "b": "Baba Yaga", "winner": "We B. Tuten", "sa": 125, "sb": 120, "confidence": 5, "hero": "", "sacrifice": "", "miracle": "", "curse": "", "future": ""}, {"a": "Serving Kuentz", "b": "The Bloody Weather", "winner": "Serving Kuentz", "sa": 125, "sb": 120, "confidence": 5, "hero": "", "sacrifice": "", "miracle": "", "curse": "", "future": ""}, {"a": "Dr. Alligator", "b": "Carl MARXDONALD'S", "winner": "Dr. Alligator", "sa": 125, "sb": 120, "confidence": 5, "hero": "", "sacrifice": "", "miracle": "", "curse": "", "future": ""}];
+let matches=JSON.parse(localStorage.getItem("eimakMatches")||"null")||defaultMatches;
+const names=Object.keys(teams);
+function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function save(){localStorage.setItem("eimakMatches",JSON.stringify(matches))}
+function roster(n){return (teams[n]||[]).join(" • ")}
+function renderTeams(){const root=document.getElementById("teams");if(!root)return;root.innerHTML="";names.forEach(n=>{const c=document.createElement("div");c.className="card";c.innerHTML="<h3 style="margin-top:0">"+esc(n)+"</h3><div class="roster" style="max-height:140px">"+esc(roster(n))+"</div>";root.appendChild(c)})}
+function render(){
+ const root=document.getElementById("matchups");root.innerHTML="";
+ matches.forEach((m,i)=>{
+  const c=document.createElement("div");c.className="card";
+  c.innerHTML="<h2>⚔️ Prophecy "+(i+1)+"</h2>"+
+  "<label>Challenger A</label><select data-k='a'>"+names.map(n=>"<option>"+esc(n)+"</option>").join("")+"</select><div class='roster' id='ra"+i+"'></div>"+
+  "<label>Challenger B</label><select data-k='b'>"+names.map(n=>"<option>"+esc(n)+"</option>").join("")+"</select><div class='roster' id='rb"+i+"'></div>"+
+  "<div class='row'><div><label>Oracle favors</label><select data-k='winner'></select></div><div><label>Confidence</label><select data-k='confidence'>"+[1,2,3,4,5,6,7,8,9,10].map(x=>"<option>"+x+"/10</option>").join("")+"</select></div></div>"+
+  "<div class='row'><div><label>Projected A</label><input type='number' data-k='sa'></div><div><label>Projected B</label><input type='number' data-k='sb'></div></div>"+
+  "<label>🔥 The chosen champion</label><input data-k='hero' placeholder='Player'>"+
+  "<label>🩸 The sacrifice</label><input data-k='sacrifice' placeholder='Player who betrays his manager'>"+
+  "<label>⚡ The miracle</label><input data-k='miracle' placeholder='Unexpected eruption'>"+
+  "<label>☠️ The curse</label><textarea data-k='curse' placeholder='Something ridiculous'></textarea>"+
+  "<label>📜 The future</label><textarea data-k='future' placeholder='Oddly specific prediction'></textarea>";
+  root.appendChild(c);
+  c.querySelector('[data-k="a"]').value=m.a;c.querySelector('[data-k="b"]').value=m.b;
+  c.querySelector('[data-k="sa"]').value=m.sa;c.querySelector('[data-k="sb"]').value=m.sb;
+  c.querySelector('[data-k="confidence"]').value=(m.confidence||5)+"/10";
+  ["hero","sacrifice","miracle","curse","future"].forEach(k=>c.querySelector("[data-k='"+k+"']").value=m[k]||"");
+  function sync(){
+   c.querySelectorAll("[data-k]").forEach(x=>{let v=x.value;if(x.dataset.k==="confidence")v=parseInt(v);m[x.dataset.k]=v});
+   const w=c.querySelector("[data-k='winner']");w.innerHTML="<option>"+esc(m.a)+"</option><option>"+esc(m.b)+"</option>";w.value=m.winner||m.a;
+   document.getElementById("ra"+i).textContent=roster(m.a);document.getElementById("rb"+i).textContent=roster(m.b);save();
+  }
+  c.querySelectorAll("input,textarea,select").forEach(x=>x.addEventListener("input",sync));c.querySelectorAll("select").forEach(x=>x.addEventListener("change",sync));sync();
+ });
+}
+function addMatchup(){matches.push({a:names[0],b:names[1],winner:names[0],sa:120,sb:120,confidence:5,hero:"",sacrifice:"",miracle:"",curse:"",future:""});save();render()}
+function generate(){
+ let o="🔮 THE CHRONICLES OF EIMAK — WEEK 1\n\nFor ten years the league has gathered beneath the Temple of Rivieris. But this year, the Oracle has opened his eyes. Eimak has seen what is coming.\n\n";
+ matches.forEach((m,i)=>{o+="━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n⚔️ PROPHECY "+(i+1)+": "+m.a.toUpperCase()+" vs "+m.b.toUpperCase()+"\n\n🔮 THE DECREE: "+(m.winner||m.a)+" shall prevail, "+m.sa+"–"+m.sb+".\n🎯 CONFIDENCE: "+(m.confidence||5)+"/10\n";if(m.hero)o+="🔥 THE CHOSEN: "+m.hero+"\n";if(m.sacrifice)o+="🩸 THE SACRIFICE: "+m.sacrifice+"\n";if(m.miracle)o+="⚡ THE MIRACLE: "+m.miracle+"\n";if(m.curse)o+="☠️ THE CURSE: "+m.curse+"\n";if(m.future)o+="📜 FROM THE FUTURE: "+m.future+"\n";o+="\n"});
+ o+="━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nThe first omen has been recorded. Eimak watches.\n\nAnd somewhere beyond the temple walls, the reigning champion Nathan believes the throne is still his.\n\nHe is mistaken.";
+ document.getElementById("output").textContent=o;
+}
+async function copyPost(){generate();await navigator.clipboard.writeText(document.getElementById("output").textContent);alert("Chronicle copied.")}
+function resetAll(){if(confirm("Reset all predictions?")){localStorage.removeItem("eimakMatches");location.reload()}}
+render();renderTeams();generate();
+</script></body></html>
