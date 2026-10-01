@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Eimak's Boogers — Week 3: The Schism</title>
+<title>Eimak's Boogers — Week 4: The Haunting</title>
 
 <style>
 :root{
@@ -15,16 +15,24 @@
   --muted:#9ca5b3;
   --line:#2b3340;
   --green:#6fbd83;
+  --purple:#9c76c9;
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
   margin:0;
   background:radial-gradient(circle at top,#1a1110 0,#090c11 32%,#05070a 75%);
   color:var(--text);
   font-family:Georgia,serif;
 }
-.wrap{max-width:1080px;margin:auto;padding:18px}
+
+.wrap{
+  max-width:1080px;
+  margin:auto;
+  padding:18px;
+}
 
 .hero{
   text-align:center;
@@ -34,22 +42,26 @@ body{
   padding:32px 16px;
   box-shadow:0 20px 60px #0008;
 }
+
 .eyebrow{
   font:700 11px system-ui;
   letter-spacing:3px;
   color:var(--gold);
 }
+
 h1{
   font-size:clamp(38px,8vw,72px);
   margin:10px 0 4px;
   color:#f0d27b;
   text-shadow:0 3px 25px #9e2d2d88;
 }
+
 .hero p{
   font-size:21px;
   margin:4px 0;
   color:#d7c9ad;
 }
+
 .panel{
   background:linear-gradient(180deg,#111720,#0c1118);
   border:1px solid var(--line);
@@ -57,11 +69,14 @@ h1{
   padding:18px;
   margin:16px 0;
 }
+
 .intro{text-align:center}
+
 .intro h3{
   color:var(--gold);
   letter-spacing:2px;
 }
+
 .toolbar{
   display:flex;
   gap:8px;
@@ -69,6 +84,7 @@ h1{
   justify-content:center;
   margin:18px 0;
 }
+
 .toolbar button{
   border:1px solid #66542e;
   background:#15130f;
@@ -78,90 +94,115 @@ h1{
   font-weight:700;
   cursor:pointer;
 }
+
 .section-title{
   margin:30px 0 12px;
   color:#e1c56d;
   border-bottom:1px solid #4b4027;
   padding-bottom:8px;
 }
+
 .summary,.rankgrid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:10px;
 }
+
 .sumcard,.rankcard{
   background:#0d1219;
   border:1px solid #2d3542;
   border-radius:12px;
   padding:14px;
 }
+
 .num{
   font:800 10px system-ui;
   letter-spacing:2px;
   color:#9da7b5;
 }
+
 .sumcard h3,.rankcard h3{
   margin:7px 0;
   color:#f1e7d0;
 }
+
 .sumcard p,.rankcard p{
   margin:0;
   color:#adb6c3;
   font:13px/1.5 system-ui;
 }
+
 .matchhead{
   display:grid;
   grid-template-columns:1fr auto 1fr;
   gap:12px;
   align-items:center;
 }
+
 .team:last-child{text-align:right}
+
 .name{
   font-size:23px;
   font-weight:700;
 }
+
 .owner{
   font:12px system-ui;
   color:#9ca5b3;
 }
+
 .vs{
   font:900 11px system-ui;
   color:#6f7782;
   letter-spacing:2px;
 }
+
 .pickbox{
   margin-top:14px;
   border-top:1px solid #28303b;
   padding-top:14px;
 }
+
 .pickrow{
   display:flex;
   justify-content:space-between;
   gap:10px;
   align-items:center;
 }
+
 .pick{
   font-weight:700;
   color:#e7cc78;
 }
+
 .score{
   font:800 22px system-ui;
   color:#fff;
 }
+
 .analysis{
   font:14px/1.65 system-ui;
   color:#c6ced9;
 }
+
 .roy{
   border-color:#6b2525;
   box-shadow:inset 0 0 30px #5a111122;
 }
+
 .roy .pick{color:#ef8585}
+
+.marriage{
+  border-color:#765187;
+  box-shadow:inset 0 0 30px #6e328022;
+}
+
 .story{
   font-size:17px;
   line-height:1.85;
   color:#ddd6c8;
 }
+
 .story .drop{
   font-size:46px;
   float:left;
@@ -169,30 +210,46 @@ h1{
   padding-right:7px;
   color:var(--gold);
 }
+
 .faction{
   border-left:4px solid var(--red);
   padding-left:14px;
 }
-.faction.alt{border-left-color:var(--gold)}
+
+.faction.alt{
+  border-left-color:var(--gold);
+}
+
+.blob{
+  border-left:4px solid var(--purple);
+  padding:16px;
+  background:#100e17;
+  border-radius:8px;
+}
+
 .ranknum{
   font:900 28px system-ui;
   color:var(--gold);
   float:right;
 }
+
 .champ{
   font:700 12px system-ui;
   color:var(--green);
 }
+
 .sources{
   font:12px/1.6 system-ui;
   color:#9ca5b3;
 }
+
 .footer{
   text-align:center;
   color:#727b87;
   font:12px system-ui;
   margin:28px 0;
 }
+
 @media(max-width:700px){
   .matchhead{grid-template-columns:1fr}
   .vs{display:none}
@@ -207,21 +264,36 @@ h1{
 <header class="hero">
 <div class="eyebrow">THE TENTH YEAR • THE TEMPLE OF RIVIERIS</div>
 <h1>🔮 EIMAK'S BOOGERS</h1>
-<p>Week 3: THE SCHISM</p>
+<p>Week 4: THE HAUNTING</p>
 </header>
 
 <section class="panel intro">
 <h3>THE ORACLE HAS SPOKEN</h3>
+
 <p>
-Two weeks were enough to prove the throne can bleed.
-In Week 3, the rebellion finally begins —
-and immediately becomes too stupid to remain united.
+Three weeks have passed.
+The undefeated have begun mistaking September success for immortality.
+The winless have begun hearing things in the walls.
+And the revolution against Nathan has fractured beyond repair.
 </p>
+
+<p>
+But something else has entered the Holy Realm.
+</p>
+
+<p>
+Something without allegiance.
+Without ideology.
+Possibly without bones.
+</p>
+
+<p><strong>Week Four begins.</strong></p>
 </section>
 
 <div class="toolbar">
-<button onclick="go('prophecies')">⚔️ Week 3 Prophecies</button>
-<button onclick="go('chronicle')">📜 The Schism</button>
+<button onclick="go('prophecies')">⚔️ Week 4 Prophecies</button>
+<button onclick="go('chronicle')">📜 The Haunting</button>
+<button onclick="go('playoffs')">🔥 Playoff Prophecy</button>
 <button onclick="go('championship')">🏆 Championship Prophecy</button>
 <button onclick="go('names')">👑 Team Name Rankings</button>
 </div>
@@ -233,378 +305,717 @@ and immediately becomes too stupid to remain united.
 <div class="sumcard">
 <div class="num">PROPHECY I</div>
 <h3>Booger Eaters</h3>
-<p>over Carl MARXDONALD'S • 121–111</p>
+<p>over We B. Tuten • 120–113</p>
 </div>
 
 <div class="sumcard">
 <div class="num">PROPHECY II</div>
-<h3>Roy Fontenelle</h3>
-<p>over Jeffrey Hastings • 128–116 • regrettably</p>
+<h3>Shaving Ryans privates</h3>
+<p>over Serving Kuentz • 121–118</p>
 </div>
 
 <div class="sumcard">
 <div class="num">PROPHECY III</div>
-<h3>Shaving Ryans privates</h3>
-<p>over We B. Tuten • 119–114</p>
+<h3>PeePee Magee</h3>
+<p>over Homeless Doink Wagglers • 110–106</p>
 </div>
 
 <div class="sumcard">
 <div class="num">PROPHECY IV</div>
-<h3>Nation of Of Domination</h3>
-<p>over Homeless Doink Wagglers • 116–103</p>
+<h3>Baba Yaga</h3>
+<p>over Nation of Of Domination • 116–105</p>
 </div>
 
 <div class="sumcard">
 <div class="num">PROPHECY V</div>
-<h3>Baba Yaga</h3>
-<p>over Show Me The Titties • 117–112</p>
+<h3>Demon Worship</h3>
+<p>over Carl MARXDONALD'S • 120–114</p>
 </div>
 
 <div class="sumcard">
 <div class="num">PROPHECY VI</div>
-<h3>Demon Worship</h3>
-<p>over Ukraine • 122–114</p>
+<h3>Show Me The Turtles</h3>
+<p>over Ukraine • 124–111</p>
 </div>
 
 </div>
+
+
+<!-- MATCHUP 1 -->
 
 <section class="panel">
+
 <div class="matchhead">
+
+<div class="team">
+<div class="name">We B. Tuten</div>
+<div class="owner">Maggie Meeks • 0–3 • ESPN 111.6</div>
+</div>
+
+<div class="vs">VERSUS</div>
+
 <div class="team">
 <div class="name">Booger Eaters</div>
-<div class="owner">Ryan Williams • ESPN 115.6</div>
+<div class="owner">Ryan Williams • 2–1 • ESPN 117.4</div>
 </div>
 
-<div class="vs">VERSUS</div>
-
-<div class="team">
-<div class="name">Carl MARXDONALD'S</div>
-<div class="owner">Chris Arnold • ESPN 105.6</div>
-</div>
 </div>
 
 <div class="pickbox">
+
 <div class="pickrow">
 <div class="pick">🔮 Eimak favors BOOGER EATERS</div>
-<div class="score">121–111</div>
+<div class="score">120–113</div>
 </div>
 
 <p class="analysis">
-Lamar Jackson and Bijan Robinson give Ryan two elite ceiling pieces.
-Javonte Williams, Parker Washington, Christian Watson, Dalton Schultz
-and Quentin Johnston give the Booger Eaters enough paths to points.
-Chris can absolutely detonate behind Ja'Marr Chase, Breece Hall,
-David Montgomery and Rashee Rice, but Eimak prefers Ryan's top-end combination.
+Maggie's 0–3 record is uglier than the roster actually deserves.
+Jalen Hurts and Amon-Ra St. Brown give We B. Tuten enough firepower
+to punch somebody directly in the mouth, and Bhayshul Tuten,
+George Pickens and Sam LaPorta give her legitimate paths to an upset.
 </p>
+
+<p class="analysis">
+But Ryan counters with Lamar Jackson and Bijan Robinson at the top,
+plus Javonte Williams, Parker Washington, Christian Watson and Dalton Schultz.
+The Oracle trusts the Booger Eaters' overall ceiling slightly more.
+</p>
+
+<p class="analysis">
+Maggie desperately needs the first victory.
+Eimak has reviewed the request and denied it.
+</p>
+
 </div>
 </section>
+
+
+<!-- MATCHUP 2 -->
 
 <section class="panel roy">
-<div class="matchhead">
 
-<div class="team">
-<div class="name">Roy Fontenelle</div>
-<div class="owner">ESPN 127.2</div>
-</div>
-
-<div class="vs">VERSUS</div>
-
-<div class="team">
-<div class="name">Jeffrey Hastings</div>
-<div class="owner">ESPN 114.5</div>
-</div>
-
-</div>
-
-<div class="pickbox">
-<div class="pickrow">
-<div class="pick">🤢 Eimak reluctantly favors ROY</div>
-<div class="score">128–116</div>
-</div>
-
-<p class="analysis">
-This is infuriating. Roy has Josh Allen, Jahmyr Gibbs, Chris Olave,
-Davante Adams and Travis Kelce. It is the sort of lineup a competent
-fantasy manager might build, which makes its presence under Roy's
-ownership one of the great theological problems of our time.
-</p>
-
-<p class="analysis">
-Eimak examined the roster three times hoping to discover fraud.
-He found only talent attached to Roy.
-</p>
-
-<p class="analysis">
-Jeffrey has real ammunition with Jared Goff, Kenneth Walker,
-De'Von Achane, Ladd McConkey, Dalton Kincaid and Brock Bowers,
-but the Oracle cannot lie merely because Roy's team has the
-spiritual aroma of a wet couch abandoned behind a fraternity house.
-</p>
-
-<p class="analysis">
-<strong>Roy wins. Nobody has to be happy about it.</strong>
-</p>
-
-</div>
-</section>
-
-<section class="panel">
 <div class="matchhead">
 
 <div class="team">
 <div class="name">Shaving Ryans privates</div>
-<div class="owner">Hayden Hodges • ESPN 110.0</div>
+<div class="owner">Hayden Hodges • 2–1 • ESPN 112.6</div>
 </div>
 
 <div class="vs">VERSUS</div>
 
 <div class="team">
-<div class="name">We B. Tuten</div>
-<div class="owner">Maggie Meeks • ESPN 114.1</div>
+<div class="name">Serving Kuentz</div>
+<div class="owner">Roy Fontenelle • 3–0 • ESPN 126.1</div>
 </div>
 
 </div>
 
 <div class="pickbox">
+
 <div class="pickrow">
-<div class="pick">🔮 Eimak favors SHAVING RYANS PRIVATES</div>
-<div class="score">119–114</div>
+<div class="pick">⚔️ Eimak calls the upset: SHAVING RYANS PRIVATES</div>
+<div class="score">121–118</div>
 </div>
 
 <p class="analysis">
-The Oracle goes against ESPN here. Christian McCaffrey and Trey McBride
-provide a massive weekly floor, while Dak Prescott, Emeka Egbuka and
-Jameson Williams provide the explosion necessary to steal the matchup.
-Maggie's Hurts–Amon-Ra core makes this one extremely dangerous.
+Roy Fontenelle is 3–0.
+</p>
+
+<p class="analysis">
+This is apparently important to Roy.
+</p>
+
+<p class="analysis">
+The archives have therefore been searched for Roy's championship trophies
+so that his historic fantasy accomplishments may be properly honored.
+</p>
+
+<p class="analysis">
+<strong>There weren't any.</strong>
+</p>
+
+<p class="analysis">
+Not one.
+</p>
+
+<p class="analysis">
+Ten years of league history and Roy's trophy case has the acoustic properties
+of an abandoned airplane hangar.
+</p>
+
+<p class="analysis">
+Yes, Josh Allen, Jahmyr Gibbs, D'Andre Swift, Chris Olave,
+Davante Adams and Travis Kelce make Serving Kuentz terrifying.
+ESPN loves Roy this week.
+The Oracle understands why.
+</p>
+
+<p class="analysis">
+But Hayden brings Christian McCaffrey, Jahmyr Gibbs' Detroit counterpart
+Jameson Williams, Emeka Egbuka, Trey McBride and Dak Prescott.
+Eimak smells the first crack in Roy's undefeated season.
+</p>
+
+<p class="analysis">
+Roy may be 3–0.
+He may become 4–0.
+He may go 14–0.
+</p>
+
+<p class="analysis">
+<strong>None of these numbers are the number of championships Roy has won.</strong>
 </p>
 
 </div>
 </section>
 
-<section class="panel">
+
+<!-- MATCHUP 3 -->
+
+<section class="panel marriage">
+
 <div class="matchhead">
+
+<div class="team">
+<div class="name">PeePee Magee</div>
+<div class="owner">Jeffrey Hastings • 1–2 • ESPN 106.4</div>
+</div>
+
+<div class="vs">HOLY MATRIMONY</div>
 
 <div class="team">
 <div class="name">Homeless Doink Wagglers</div>
-<div class="owner">Lucy Hastings • ESPN 92.8</div>
+<div class="owner">Lucy Hastings • 1–2 • ESPN 105.1</div>
 </div>
 
-<div class="vs">VERSUS</div>
+</div>
+
+<div class="pickbox">
+
+<div class="pickrow">
+<div class="pick">💍 Eimak favors PEEPEE MAGEE</div>
+<div class="score">110–106</div>
+</div>
+
+<p class="analysis">
+There are moments when fantasy football transcends sport.
+</p>
+
+<p class="analysis">
+This is not one of them.
+</p>
+
+<p class="analysis">
+Husband versus wife.
+Jeff versus Lucy.
+PeePee Magee versus the Homeless Doink Wagglers.
+One household enters Sunday with two fantasy teams and leaves it
+with somebody pretending they aren't annoyed.
+</p>
+
+<p class="analysis">
+Jeff brings Jared Goff, Kenneth Walker, Kendre Miller,
+Ladd McConkey, Michael Wilson, Dalton Kincaid and Nico Collins.
+Lucy answers with Patrick Mahomes, Kyren Williams, Aaron Jones,
+Drake London, Romeo Doubs, Colston Loveland and Tony Pollard.
+</p>
+
+<p class="analysis">
+ESPN essentially shrugged and called it 51–49.
+Eimak agrees that this is extremely close,
+but gives Jeffrey the smallest of edges.
+</p>
+
+<p class="analysis">
+The ancient marriage scrolls are also clear:
+should Jeffrey defeat his own wife,
+<strong>his ceremonial peg shall be increased by three sizes.</strong>
+</p>
+
+<p class="analysis">
+Nobody knows what this means.
+Lucy has reportedly declined to ask.
+</p>
+
+</div>
+</section>
+
+
+<!-- MATCHUP 4 -->
+
+<section class="panel">
+
+<div class="matchhead">
 
 <div class="team">
 <div class="name">Nation of Of Domination</div>
-<div class="owner">Christopher Polk • ESPN 108.9</div>
-</div>
-
-</div>
-
-<div class="pickbox">
-<div class="pickrow">
-<div class="pick">🔮 Eimak favors NATION OF OF DOMINATION</div>
-<div class="score">116–103</div>
-</div>
-
-<p class="analysis">
-Mahomes, Kyren Williams, Puka Nacua and Drake London keep Lucy dangerous,
-but the Nation marches behind Derrick Henry, Travis Etienne,
-Justin Jefferson and Tee Higgins.
-</p>
-
-<p class="analysis">
-The double “Of” remains grammatically indefensible.
-The roster is considerably more defensible.
-</p>
-
-</div>
-</section>
-
-<section class="panel">
-<div class="matchhead">
-
-<div class="team">
-<div class="name">Baba Yaga</div>
-<div class="owner">Nathan Glueck • 0–2 • ESPN 115.1</div>
+<div class="owner">Christopher Polk • 0–3 • ESPN 101.0</div>
 </div>
 
 <div class="vs">VERSUS</div>
 
 <div class="team">
-<div class="name">Show Me The Titties</div>
-<div class="owner">Sawyer Glueck • 2–0 • ESPN 103.0</div>
+<div class="name">Baba Yaga</div>
+<div class="owner">Nathan Glueck • 1–2 • ESPN 115.4</div>
 </div>
 
 </div>
 
 <div class="pickbox">
+
 <div class="pickrow">
-<div class="pick">⚔️ Eimak favors BABA YAGA</div>
-<div class="score">117–112</div>
+<div class="pick">👑 Eimak favors BABA YAGA</div>
+<div class="score">116–105</div>
 </div>
 
 <p class="analysis">
-The prophecy becomes politically inconvenient.
-Jonathan Taylor and Ashton Jeanty are too powerful to ignore,
-with Garrett Wilson and Tetairoa McMillan behind them.
+Nathan survived.
 </p>
 
 <p class="analysis">
-Sawyer's Justin Herbert, Bucky Irving, JSN, Malik Nabers,
-Tyler Warren and Nico Collins can absolutely punish this prediction.
-But the Oracle sees Nathan finally winning —
-precisely when half the rebellion wants him buried at 0–3.
+That sentence alone has reopened the civil war.
+</p>
+
+<p class="analysis">
+The reigning champion crawled out of 0–2 and now encounters
+a Nation of Of Domination team sitting at 0–3.
+</p>
+
+<p class="analysis">
+Christopher still has Derrick Henry, Travis Etienne,
+Justin Jefferson and Tee Higgins.
+There is enough talent here to make 0–3 feel deeply unfair.
+</p>
+
+<p class="analysis">
+But Jonathan Taylor and Ashton Jeanty give Nathan a brutal backfield,
+with Garrett Wilson, Tetairoa McMillan and Harold Fannin Jr.
+providing enough support for the Oracle to reluctantly call another Baba Yaga victory.
+</p>
+
+<p class="analysis">
+The Order of the Severed Crown celebrates.
+The Booger Liberation Front considers this further evidence
+that Eimak has been compromised.
 </p>
 
 </div>
 </section>
 
+
+<!-- MATCHUP 5 -->
+
 <section class="panel">
+
 <div class="matchhead">
 
 <div class="team">
+<div class="name">Carl MARXDONALD'S</div>
+<div class="owner">Chris Arnold • 1–2 • ESPN 111.4</div>
+</div>
+
+<div class="vs">VERSUS</div>
+
+<div class="team">
 <div class="name">Demon Worship</div>
-<div class="owner">Jacob Thomas • 2–0 • ESPN 119.1</div>
+<div class="owner">Jacob Thomas • 3–0 • ESPN 115.3</div>
+</div>
+
+</div>
+
+<div class="pickbox">
+
+<div class="pickrow">
+<div class="pick">🔥 Eimak favors DEMON WORSHIP</div>
+<div class="score">120–114</div>
+</div>
+
+<p class="analysis">
+Jacob remains undefeated and has constructed the kind of roster
+that makes Eimak suspicious that actual demons may have participated
+in the draft.
+</p>
+
+<p class="analysis">
+Saquon Barkley and James Cook form a vicious running-back pairing.
+DeVonta Smith, Zay Flowers, George Kittle and Luther Burden
+give Jacob enough weapons that a mediocre performance from one player
+doesn't immediately destroy the week.
+</p>
+
+<p class="analysis">
+Chris has the nuclear option.
+Joe Burrow throwing toward Ja'Marr Chase can turn an ordinary matchup
+into a catastrophe, while David Montgomery, Breece Hall,
+Rashee Rice and Mark Andrews provide plenty of support.
+</p>
+
+<p class="analysis">
+This one stays close.
+But until somebody kills the demon, Eimak will continue feeding it.
+</p>
+
+</div>
+</section>
+
+
+<!-- MATCHUP 6 -->
+
+<section class="panel">
+
+<div class="matchhead">
+
+<div class="team">
+<div class="name">Show Me The Turtles</div>
+<div class="owner">Sawyer Glueck • 2–1 • ESPN 125.1</div>
 </div>
 
 <div class="vs">VERSUS</div>
 
 <div class="team">
 <div class="name">Ukraine</div>
-<div class="owner">Mike C • 2–0 • ESPN 105.3</div>
+<div class="owner">Mike C • 2–1 • ESPN 110.8</div>
 </div>
 
 </div>
 
 <div class="pickbox">
+
 <div class="pickrow">
-<div class="pick">🔮 Eimak favors DEMON WORSHIP</div>
-<div class="score">122–114</div>
+<div class="pick">🐢 Eimak favors SHOW ME THE TURTLES</div>
+<div class="score">124–111</div>
 </div>
 
 <p class="analysis">
-The undefeated collision.
-Jacob brings Brock Purdy, De'Von Achane, James Cook,
-DeVonta Smith, Zay Flowers, George Kittle and Saquon Barkley.
-Mike has enough firepower to remain unbeaten,
-but Eimak sees Jacob's depth surviving the bloodbath and reaching 3–0.
+Sawyer enters Week Four with one of the strongest projected lineups
+in the entire realm.
+</p>
+
+<p class="analysis">
+Bryce Young isn't exactly the name that causes villagers to flee their homes,
+but Quinshon Judkins, JSN, Malik Nabers, Brock Bowers and Bucky Irving
+give Show Me The Turtles serious firepower everywhere else.
+</p>
+
+<p class="analysis">
+Mike counters with Trevor Lawrence, Chase Brown, Cam Skattebo,
+CeeDee Lamb, Denzel Boston and Tyler Warren.
+There are paths to the upset.
+</p>
+
+<p class="analysis">
+The Oracle simply sees more of them on Sawyer's side.
 </p>
 
 </div>
 </section>
 
+
+<!-- STORY -->
+
 <h2 id="chronicle" class="section-title">
-📜 The Commissioner's Chronicle — Chapter III: THE SCHISM
+📜 The Commissioner's Chronicle — Chapter IV: THE HAUNTING
 </h2>
 
 <section class="panel story">
 
-<p><span class="drop">N</span>athan had not won a battle.</p>
-
-<p>And somehow, that made everything worse.</p>
+<p><span class="drop">T</span>he king had survived.</p>
 
 <p>
-For two weeks, whispers crawled beneath the doors of the Twelve Houses:
-<em>Baba Yaga is weak. The champion bleeds. The throne is empty even while he sits upon it.</em>
+Nathan Glueck stood again.
 </p>
 
-<p>Eimak had expected rebellion.</p>
+<p>
+Not proudly.
+Not convincingly.
+But technically upright.
+</p>
 
-<p>He had not expected <strong>two rebellions.</strong></p>
+<p>
+And in the Holy Realm, technically upright was enough.
+</p>
+
+<p>
+The victory should have united the rebellion.
+</p>
+
+<p>
+Instead, it destroyed what remained of it.
+</p>
 
 <div class="faction">
+
 <p>
-<strong>THE ORDER OF THE SEVERED CROWN</strong> followed the old prophecy.
-Nathan must be allowed to crawl back toward power.
-Let him believe the realm has forgiven him.
-Let him approach the playoffs wearing his crown once more.
-Only then would the final humiliation mean anything.
+<strong>THE ORDER OF THE SEVERED CROWN</strong> celebrated.
 </p>
+
+<p>
+Their prophecy required Nathan alive.
+</p>
+
+<p>
+Let the champion recover.
+Let Baba Yaga crawl back toward relevance.
+Let Nathan begin believing the crown still belonged to him.
+</p>
+
+<p>
+Then, near the playoffs, remove it.
+</p>
+
 </div>
 
 <div class="faction alt">
+
 <p>
-<strong>THE BOOGER LIBERATION FRONT</strong> had no patience for theater.
-Nathan was 0–2. They wanted 0–3. Then 0–4.
-They wanted Baba Yaga dragged through the mud until
-there was no king left to execute.
+<strong>THE BOOGER LIBERATION FRONT</strong> called this insanity.
 </p>
+
+<p>
+They had wanted Nathan buried at 0–3.
+</p>
+
+<p>
+Now he was 1–2.
+</p>
+
+<p>
+Another victory could make him 2–2.
+</p>
+
+<p>
+Two victories could make him confident.
+</p>
+
+<p>
+And nothing terrified the Liberation Front more than
+<strong>a confident Nathan.</strong>
+</p>
+
 </div>
 
 <p>
-For the first time, the revolutionaries turned their weapons
-toward one another.
-</p>
-
-<p>Then Roy arrived.</p>
-
-<p>
-Eimak stared at Josh Allen. Jahmyr Gibbs.
-Chris Olave. Davante Adams. Travis Kelce.
+Arguments became threats.
+Threats became alliances.
+Alliances lasted approximately eleven minutes.
 </p>
 
 <p>
-<em>
-“How has one man assembled this much talent
-and still made me hate looking at it?”
-</em>
+And while the revolution consumed itself,
+two undefeated armies quietly grew stronger.
 </p>
 
 <p>
-Roy's roster was a perfectly cooked steak floating in a gas-station toilet:
-obviously valuable, completely ruined by the circumstances surrounding it.
+Jacob Thomas stood at 3–0 beneath the banner of Demon Worship.
 </p>
 
 <p>
-Eimak carved Roy's victory into the stone,
-gagged, and washed the knife twice.
-</p>
-
-<p>But the Temple fell silent when Nathan entered.</p>
-
-<p>Across the chamber stood Sawyer — undefeated.</p>
-
-<p>The Liberation Front screamed for Nathan's third defeat.</p>
-
-<p>The Severed Crown drew steel.</p>
-
-<p><em>“A king cannot be executed as a peasant.”</em></p>
-
-<p>
-And then Eimak spoke the prophecy nobody wanted to hear:
-</p>
-
-<p><strong>Nathan would win.</strong></p>
-
-<p>
-Some called it betrayal.
-Others called it destiny.
-Nathan called it Week 3.
-</p>
-
-<p>Eimak called it something else.</p>
-
-<p><em>The beginning.</em></p>
-
-<p>
-Because revolutions do not become dangerous
-when everyone hates the king.
+Roy Fontenelle also stood at 3–0.
 </p>
 
 <p>
-They become dangerous when everyone hates the king —
-<strong>and begins arguing over what should happen to him.</strong>
+Roy immediately requested that the historical record acknowledge this achievement.
+</p>
+
+<p>
+The historical record responded:
+</p>
+
+<p>
+<strong>Championships — 0.</strong>
+</p>
+
+<p>
+Roy demanded a recount.
+</p>
+
+<p>
+The recount produced zero again.
+</p>
+
+<p>
+A second recount was ordered.
+</p>
+
+<p>
+Still zero.
+</p>
+
+<p>
+Eimak eventually instructed the scribes to stop counting
+because they were simply staring at an empty shelf.
+</p>
+
+<p>
+But then something happened that made everyone forget about Roy.
+</p>
+
+<p>
+For one beautiful moment.
+</p>
+
+<p>
+A noise came from beyond the Temple walls.
+</p>
+
+<p>
+Not footsteps.
+</p>
+
+<p>
+Not breathing.
+</p>
+
+<p>
+Something wetter.
+</p>
+
+<p>
+Something was approaching.
+</p>
+
+<div class="blob">
+
+<p>
+The oldest and least reliable scriptures tell of a man named
+<strong>Michael Landry.</strong>
+</p>
+
+<p>
+According to these deeply questionable texts,
+Michael had once been portrayed as a furious red-hatted MAGA disciple,
+a fictional Trump-loving warrior screaming his beliefs
+into the ancient GroupMe scrolls.
+</p>
+
+<p>
+But something changed.
+</p>
+
+<p>
+First Michael abandoned certainty.
+</p>
+
+<p>
+Then allegiance.
+</p>
+
+<p>
+Then ideology.
+</p>
+
+<p>
+Then apparently the basic requirement of maintaining a recognizable identity.
+</p>
+
+<p>
+His opinions folded into other opinions.
+His beliefs dissolved into questions.
+His questions dissolved into noises.
+</p>
+
+<p>
+And eventually...
+</p>
+
+<p>
+<strong>Michael dissolved.</strong>
+</p>
+
+<p>
+No Republican.
+No Democrat.
+No revolutionary.
+No loyalist.
+</p>
+
+<p>
+Not even really Michael anymore.
+</p>
+
+<p>
+Only an enormous,
+shimmering,
+<strong>amorphous blob of political and spiritual uncertainty.</strong>
+</p>
+
+</div>
+
+<p>
+The creature floated over the Temple.
+</p>
+
+<p>
+Eimak looked upward.
+</p>
+
+<p>
+The blob looked downward.
+</p>
+
+<p>
+Or at least Eimak assumed it did.
+It no longer appeared to possess eyes.
+</p>
+
+<p>
+Then the thing moved.
+</p>
+
+<p>
+Past Nathan.
+</p>
+
+<p>
+Past Jacob.
+</p>
+
+<p>
+Past Roy's empty trophy cabinet.
+</p>
+
+<p>
+It drifted toward the houses of those who had lost.
+</p>
+
+<p>
+And from somewhere inside its gelatinous body came a whisper:
+</p>
+
+<p>
+<em>“I don't really know what I believe anymore.”</em>
+</p>
+
+<p>
+The torches went out.
+</p>
+
+<p>
+Eimak finally understood.
+</p>
+
+<p>
+The revolution was no longer the only danger in the realm.
+</p>
+
+<p>
+<strong>Beginning in Week Four, the losers would be haunted.</strong>
 </p>
 
 </section>
 
-<h2 id="championship" class="section-title">
-🏆 The Oracle's Championship Prophecy
+
+<!-- PLAYOFF OUTLOOK -->
+
+<h2 id="playoffs" class="section-title">
+🔥 The Oracle's Playoff Prophecy
 </h2>
 
 <section class="panel">
 <p class="analysis">
-Eimak's current title forecast weighs record, lineup strength,
-elite-player concentration and rest-of-season upside.
-This is the Oracle's prediction — not ESPN's standings.
+Three weeks have finally given Eimak enough evidence to begin separating
+bad luck from actual structural collapse.
+These are projections, not standings.
 </p>
 </section>
 
@@ -612,42 +1023,184 @@ This is the Oracle's prediction — not ESPN's standings.
 
 <div class="rankcard">
 <span class="ranknum">1</span>
-<div class="champ">FRONT OF THE PROPHECY</div>
-<h3>Demon Worship — Jacob</h3>
+<div class="champ">STRONG PLAYOFF POSITION</div>
+<h3>Demon Worship — Jacob • 3–0</h3>
 <p>
-2–0 with absurd depth. Purdy, Achane, Cook, Saquon,
-DeVonta, Zay and Kittle give the Oracle very few weak points to attack.
+Undefeated with one of the deepest rosters in the league.
+Eimak currently sees Jacob as the safest playoff projection.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">2</span>
-<div class="champ">ELITE CORE</div>
-<h3>Booger Eaters — Ryan</h3>
+<div class="champ">STRONG PLAYOFF POSITION</div>
+<h3>Serving Kuentz — Roy • 3–0</h3>
 <p>
-Lamar plus Bijan is the sort of foundation
-that can erase an otherwise terrible Sunday in about six minutes.
+Unfortunately, regular-season wins count even when Roy earns them.
+The roster is excellent and the playoff path is already becoming favorable.
+Championships remain zero.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">3</span>
-<div class="champ">UNDEFEATED THREAT</div>
-<h3>Show Me The Titties — Sawyer</h3>
+<div class="champ">PLAYOFF TRACK</div>
+<h3>Show Me The Turtles — Sawyer • 2–1</h3>
 <p>
-The 2–0 start matters, and JSN, Nabers and Nico Collins
-give this roster violent weekly receiving upside.
+A strong record combined with serious receiving and tight-end firepower
+makes Sawyer one of Eimak's stronger postseason bets.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">4</span>
-<div class="champ">DISGUSTINGLY VIABLE</div>
-<h3>Roy Fontenelle</h3>
+<div class="champ">PLAYOFF TRACK</div>
+<h3>Booger Eaters — Ryan • 2–1</h3>
 <p>
-Allen. Gibbs. Olave. Davante. Kelce.
-Eimak hates this roster because Eimak has eyes.
-Unfortunately, it can win the league.
+Lamar and Bijan provide enough weekly ceiling to keep Ryan
+near the front of the race.
+</p>
+</div>
+
+<div class="rankcard">
+<span class="ranknum">5</span>
+<div class="champ">IN THE HUNT</div>
+<h3>Shaving Ryans privates — Hayden • 2–1</h3>
+<p>
+CMC and Trey McBride give Hayden a strong foundation.
+Another win would move this roster firmly into the upper tier.
+</p>
+</div>
+
+<div class="rankcard">
+<span class="ranknum">6</span>
+<div class="champ">BUBBLE</div>
+<h3>Ukraine — Mike • 2–1</h3>
+<p>
+The record keeps Mike directly in the playoff picture.
+Eimak remains less convinced by the roster than the record.
+</p>
+</div>
+
+<div class="rankcard">
+<span class="ranknum">7</span>
+<div class="champ">BUBBLE</div>
+<h3>Baba Yaga — Nathan • 1–2</h3>
+<p>
+Nathan finally won.
+The backfield remains strong enough that the defending champion
+cannot yet be buried.
+</p>
+</div>
+
+<div class="rankcard">
+<span class="ranknum">8</span>
+<div class="champ">BUBBLE</div>
+<h3>Carl MARXDONALD'S — Chris • 1–2</h3>
+<p>
+The record is mediocre.
+The underlying star power is not.
+One winning streak changes everything.
+</p>
+</div>
+
+<div class="rankcard">
+<span class="ranknum">9</span>
+<div class="champ">NEEDS A RUN</div>
+<h3>PeePee Magee — Jeffrey • 1–2</h3>
+<p>
+Still alive, but the middle of the roster needs more consistency.
+Defeating Lucy would be both mathematically and matrimonially important.
+</p>
+</div>
+
+<div class="rankcard">
+<span class="ranknum">10</span>
+<div class="champ">NEEDS A RUN</div>
+<h3>Homeless Doink Wagglers — Lucy • 1–2</h3>
+<p>
+Mahomes and the supporting weapons keep Lucy dangerous.
+Week Four's domestic bloodbath could swing the trajectory considerably.
+</p>
+</div>
+
+<div class="rankcard">
+<span class="ranknum">11</span>
+<div class="champ">DANGER</div>
+<h3>We B. Tuten — Maggie • 0–3</h3>
+<p>
+The roster is considerably better than 0–3.
+Unfortunately, fantasy leagues have stubbornly continued counting actual wins.
+</p>
+</div>
+
+<div class="rankcard">
+<span class="ranknum">12</span>
+<div class="champ">THE ABYSS</div>
+<h3>Nation of Of Domination — Christopher • 0–3</h3>
+<p>
+The stars remain capable of a recovery.
+But 0–4 would turn a difficult playoff path into something requiring
+divine intervention.
+</p>
+</div>
+
+</div>
+
+
+<!-- CHAMPIONSHIP -->
+
+<h2 id="championship" class="section-title">
+🏆 The Oracle's Championship Prophecy
+</h2>
+
+<section class="panel">
+<p class="analysis">
+This ranking ignores sentiment and weighs roster ceiling,
+depth, current record and Eimak's expectations for the remainder of the season.
+</p>
+</section>
+
+<div class="rankgrid">
+
+<div class="rankcard">
+<span class="ranknum">1</span>
+<div class="champ">THE FAVORITE</div>
+<h3>Demon Worship — Jacob</h3>
+<p>
+3–0 with Saquon, James Cook, DeVonta Smith,
+Zay Flowers and George Kittle.
+Until somebody exposes the weakness, Jacob holds the throne.
+</p>
+</div>
+
+<div class="rankcard">
+<span class="ranknum">2</span>
+<div class="champ">ELITE CEILING</div>
+<h3>Serving Kuentz — Roy</h3>
+<p>
+Allen, Gibbs, Olave, Davante and Kelce can absolutely win a championship.
+This would be especially groundbreaking because Roy has never actually done that.
+</p>
+</div>
+
+<div class="rankcard">
+<span class="ranknum">3</span>
+<div class="champ">SERIOUS CONTENDER</div>
+<h3>Show Me The Turtles — Sawyer</h3>
+<p>
+JSN, Nabers, Bowers and a 2–1 start give Sawyer
+one of the strongest combinations of record and upside.
+</p>
+</div>
+
+<div class="rankcard">
+<span class="ranknum">4</span>
+<div class="champ">SERIOUS CONTENDER</div>
+<h3>Booger Eaters — Ryan</h3>
+<p>
+Lamar plus Bijan remains one of Eimak's favorite foundations.
+The supporting cast determines the ceiling.
 </p>
 </div>
 
@@ -656,97 +1209,104 @@ Unfortunately, it can win the league.
 <div class="champ">DANGEROUS</div>
 <h3>Shaving Ryans privates — Hayden</h3>
 <p>
-CMC and McBride provide premium anchors
-with enough volatility around them to create monster weeks.
+CMC and McBride give Hayden enough elite talent
+to become extremely unpleasant in December.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">6</span>
-<div class="champ">SLEEPING GIANT</div>
+<div class="champ">THE CHAMPION LURKS</div>
 <h3>Baba Yaga — Nathan</h3>
 <p>
-0–2 is ugly. Jonathan Taylor plus Ashton Jeanty is not.
-The reigning champion is wounded rather than dead,
-which is precisely why the revolution is getting nervous.
+Nathan's record pushes him down the list.
+Jonathan Taylor and Ashton Jeanty prevent Eimak from pushing him much farther.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">7</span>
-<div class="champ">LIVE CONTENDER</div>
-<h3>We B. Tuten — Maggie</h3>
+<div class="champ">HIGH-VARIANCE THREAT</div>
+<h3>Carl MARXDONALD'S — Chris</h3>
 <p>
-Hurts and Amon-Ra can carry a roster a long way.
-Omarion Hampton adds another premium weekly weapon.
+Burrow and Chase provide nuclear upside.
+A hot stretch could make this ranking obsolete very quickly.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">8</span>
-<div class="champ">VOLATILE</div>
-<h3>Nation of Of Domination — Christopher</h3>
+<div class="champ">STILL ALIVE</div>
+<h3>Ukraine — Mike</h3>
 <p>
-Henry, Jefferson and Etienne provide enough star power
-to climb quickly if the supporting pieces cooperate.
+At 2–1, Mike has already banked valuable wins.
+Eimak simply sees less margin for error than with the teams above.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">9</span>
-<div class="champ">DANGEROUS BUT UNEVEN</div>
-<h3>Jeffrey Hastings</h3>
+<div class="champ">NEEDS MOMENTUM</div>
+<h3>PeePee Magee — Jeffrey</h3>
 <p>
-Kenneth Walker and Achane can destroy a matchup,
-while Kincaid and Bowers provide unusual tight-end firepower.
+The pieces exist.
+The next few weeks determine whether they become a contender
+or simply an interesting collection of names.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">10</span>
 <div class="champ">NEEDS MOMENTUM</div>
-<h3>Carl MARXDONALD'S — Chris</h3>
+<h3>Homeless Doink Wagglers — Lucy</h3>
 <p>
-Ja'Marr, Breece, Montgomery and Rashee Rice
-can change this ranking very quickly.
+Mahomes prevents Eimak from declaring this roster dead.
+The 1–2 hole needs to stop getting deeper.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">11</span>
-<div class="champ">THE HOLE IS DEEP</div>
-<h3>Homeless Doink Wagglers — Lucy</h3>
+<div class="champ">DESPERATION</div>
+<h3>We B. Tuten — Maggie</h3>
 <p>
-The 0–2 start hurts, although Mahomes, Kyren and Puka
-mean nobody should treat this roster like a free win.
+Hurts and Amon-Ra provide comeback potential.
+At 0–3, however, potential needs to become victories immediately.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">12</span>
-<div class="champ">PROVE THE ORACLE WRONG</div>
-<h3>Ukraine — Mike</h3>
+<div class="champ">THE VOID</div>
+<h3>Nation of Of Domination — Christopher</h3>
 <p>
-The 2–0 record demands respect.
-Based on the current lineup snapshot, Eimak sees more fragility here
-than in the other undefeated roster.
-One more victory can make this ranking look extremely stupid.
+Justin Jefferson and Derrick Henry are not the problem.
+The three losses already sitting in the standings are.
 </p>
 </div>
 
 </div>
+
+
+<!-- TEAM NAMES -->
 
 <h2 id="names" class="section-title">
 👑 Eimak's Sacred Team Name Rankings
 </h2>
 
 <section class="panel">
+
 <p class="analysis">
-This ranking is based entirely on Eimak's personal preference.
-Fantasy ability is irrelevant.
-Roy and Jeffrey are omitted because their team names were not visible
-in the Week 3 screenshots, and the Oracle refuses to invent scripture.
+For the first time, Eimak possesses all twelve names.
+These rankings are based on vibes, stupidity, originality,
+league-lore potential and whatever arbitrary emotion
+the Oracle experienced while reading them.
 </p>
+
+<p class="analysis">
+Fantasy performance has absolutely no influence here.
+</p>
+
 </section>
 
 <div class="rankgrid">
@@ -755,26 +1315,28 @@ in the Week 3 screenshots, and the Oracle refuses to invent scripture.
 <span class="ranknum">1</span>
 <h3>Shaving Ryans privates</h3>
 <p>
-Deeply unnecessary. Immediately memorable.
-The exact level of degeneracy this league was built to preserve.
+Still magnificent.
+Still unnecessary.
+Still the exact kind of sentence that should never appear
+on a respectable fantasy website.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">2</span>
-<h3>Homeless Doink Wagglers</h3>
+<h3>PeePee Magee</h3>
 <p>
-Nobody knows what a Doink Waggler is.
-Nobody should. Excellent work.
+An extraordinary combination of juvenile stupidity and mysterious wizardry.
+Eimak respects the craft.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">3</span>
-<h3>Booger Eaters</h3>
+<h3>Homeless Doink Wagglers</h3>
 <p>
-Perfectly on-brand with the Holy Realm.
-Childish, disgusting and spiritually important.
+Three words that should never have met.
+Somehow they found one another.
 </p>
 </div>
 
@@ -782,66 +1344,93 @@ Childish, disgusting and spiritually important.
 <span class="ranknum">4</span>
 <h3>Carl MARXDONALD'S</h3>
 <p>
-A stupid pun executed with enough commitment to become art.
+The capitalization elevates it.
+Without the capitalization this is merely stupid.
+With it, we have culture.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">5</span>
-<h3>Demon Worship</h3>
+<h3>Booger Eaters</h3>
 <p>
-Clean. Threatening.
-Probably responsible for at least three unexplained noises beneath the Temple.
+Deeply aligned with the sacred traditions of Eimak's Boogers.
+A foundational franchise identity.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">6</span>
-<h3>We B. Tuten</h3>
+<h3>Demon Worship</h3>
 <p>
-A respectable fantasy pun.
-Eimak hates respectability but recognizes craftsmanship.
+Simple.
+Threatening.
+Increasingly concerning now that the team is 3–0.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">7</span>
-<h3>Show Me The Titties</h3>
+<h3>Serving Kuentz</h3>
 <p>
-Subtle as a brick through a church window.
-Points awarded for honesty.
+Good wordplay.
+Unfortunately owned by Roy,
+resulting in an automatic spiritual deduction.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">8</span>
-<h3>Baba Yaga</h3>
+<h3>We B. Tuten</h3>
 <p>
-Good name.
-Unfortunately attached to Nathan,
-which creates a severe contamination penalty.
+Competent fantasy wordplay.
+Unlike the team's record, the name has actually produced results.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">9</span>
-<h3>Nation of Of Domination</h3>
+<h3>Show Me The Turtles</h3>
 <p>
-The accidental second “Of” is now the funniest part.
-Never fix it.
+A dramatic rebrand into something simultaneously cleaner
+and somehow more confusing.
+The Oracle requires further study.
 </p>
 </div>
 
 <div class="rankcard">
 <span class="ranknum">10</span>
+<h3>Baba Yaga</h3>
+<p>
+Objectively cool.
+Unfortunately years of Nathan-related contamination
+have damaged the brand.
+</p>
+</div>
+
+<div class="rankcard">
+<span class="ranknum">11</span>
+<h3>Nation of Of Domination</h3>
+<p>
+The second “Of” continues doing almost all of the comedic work.
+Under no circumstances should it ever be corrected.
+</p>
+</div>
+
+<div class="rankcard">
+<span class="ranknum">12</span>
 <h3>Ukraine</h3>
 <p>
-Direct. Geopolitical.
-Offers the Oracle absolutely nothing to work with.
+It's Ukraine.
+That's the whole thing.
+Eimak has been given almost nothing to work with.
 </p>
 </div>
 
 </div>
+
+
+<!-- RESEARCH -->
 
 <h2 class="section-title">🔎 Oracle's Research Scroll</h2>
 
@@ -849,23 +1438,28 @@ Offers the Oracle absolutely nothing to work with.
 
 <p>
 <strong>Analysis snapshot:</strong>
-September 24, 2026.
-Week 3 predictions combine the actual league lineups,
-ESPN baseline projections, current expert consensus,
-player roles and matchup context.
+October 1, 2026.
+Week 4 predictions use the league records, starting lineups
+and ESPN baseline projections supplied to the Oracle.
 </p>
 
 <p>
-Fantasy projections are estimates, not guarantees.
-The Oracle accepts no liability for cursed hamstrings,
-goal-line vultures, inexplicable coaching decisions,
-or kickers missing from 34 yards.
+The Oracle's final selections are his own predictions
+and intentionally do not simply reproduce ESPN's win percentages.
+</p>
+
+<p>
+Fantasy projections remain estimates.
+Eimak accepts no liability for cursed hamstrings,
+goal-line vultures, quarterbacks throwing interceptions from the one,
+or whatever horrifying event causes your kicker to score zero.
 </p>
 
 </section>
 
+
 <div class="footer">
-Eimak's Boogers • The Temple of Rivieris • 2026 Week 3 • THE SCHISM
+Eimak's Boogers • The Temple of Rivieris • 2026 Week 4 • THE HAUNTING
 </div>
 
 </div>
